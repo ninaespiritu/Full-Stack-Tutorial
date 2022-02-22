@@ -25,8 +25,8 @@ const App = () => {
 				<Router>
 					<Navbar />
 					<Routes>
-						<Route path="/home" element={<Home user={user} />}></Route>
-						<Route path="/profile" element={<Profile user={user} />}></Route>
+						<Route path="/" element={<Home user={user} />}></Route>
+						<Route path="profile" element={<Profile user={user} />}></Route>
 					</Routes>
 			</Router>
 			) : (
