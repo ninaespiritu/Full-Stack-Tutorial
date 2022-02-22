@@ -3,6 +3,9 @@ import { useState } from "react";
 import { fetchRequest } from "./utils";
 import { Home } from "./components/Home";
 import { SignUp } from "./components/SignUp";
+import { Navbar } from "./components/Navbar";
+import { Profile } from "./components/Profile";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 const App = () => {
 	const [user, setUser] = useState();
@@ -19,7 +22,13 @@ const App = () => {
 	return (
 		<div>
 			{user ? (
-				<Home user={user} />
+				<Router>
+					<Navbar />
+					<Routes>
+						<Route path="/home" element={<Home user={user} />}></Route>
+						<Route path="/profile" element={<Profile user={user} />}></Route>
+					</Routes>
+			</Router>
 			) : (
 				<SignUp
 					props={{ handleSubmit, setUsername, setEmail, setPassword }}
