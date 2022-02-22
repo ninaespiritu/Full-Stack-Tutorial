@@ -1,6 +1,6 @@
 export const fetchRequest = async (setUser, username, email, password) => {
 	// console.log(username, email, password)
-    try {
+	try {
 		const response = await fetch(`${process.env.REACT_APP_REST_API}user`, {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
@@ -8,11 +8,12 @@ export const fetchRequest = async (setUser, username, email, password) => {
 				username: username,
 				email: email,
 				password: password,
-                // SHORT VERSION: username, email, password,
+				// SHORT VERSION: username, email, password,
 			}),
 		});
 		const data = await response.json();
 		console.log(data);
+		setUser(data);
 	} catch (error) {
 		console.log(error);
 	}
